@@ -1,0 +1,48 @@
+name: Coverage Computation
+
+on: 
+    workflow_dispatch #trigger it manually
+    
+jobs:
+    maven-test:
+        runs-on: ubuntu-latest
+        
+    steps:
+        -name: Checkout specific tag
+        uses: actions/checkout@v3
+        with:
+            ref: tags/calcite-1.0.0-incubating
+            
+        -name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+            java-version: '17'
+            distribution: 'temurin'
+        
+        - name: Add JaCoCo plugin to pom.xml
+        run: |
+          sed -i '/<plugins>/a\
+            <plugin>\
+              <groupId>org.jacoco</groupId>\
+              <artifactId>jacoco-maven-plugin</artifactId>\
+              <version>0.8.14</version>\
+              <executions>\
+                 <execution>\
+                    <id>prepare-agent</id>\
+                    <goals>\
+                        <goal>prepare-agent</goal>\
+                    </goals>\
+                </execution>\                
+                <execution>\
+                    <id>report</id>\
+                    <phase>test</phase>\
+                    <goals>\
+                        <goal>report</goal>\
+                    </goals>\
+                </execution>\
+                </execution>\
+              </executions>\
+            </plugin>' pom.xml
+        
+        -name: Run jacoco test with maven-plugin
+        run: mvn test
