@@ -23,7 +23,7 @@ jobs:
 
       # Step 3: Build & test the project with JaCoCo agent (no POM modifications)
       - name: Run tests with JaCoCo
-        run: mvn clean test org.jacoco:jacoco-maven-plugin:0.8.14:report -Djacoco.outputDirectory=target/site/jacoco
+        run: mvn clean test org.jacoco:jacoco-maven-plugin:0.8.14:report -Djacoco.outputDirectory=target/site/jacoco -fae
 
 
       # Step 4: Upload the JaCoCo HTML report as an artifact
