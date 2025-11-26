@@ -19,6 +19,16 @@ jobs:
                 java-version: '17'
                 distribution: 'temurin'
         
+            - name: Add missing Maven repo for eigenbase artifacts
+              run: |
+                sed -i '/<project>/a\
+                    <repositories>\
+                        <repository>\
+                            <id>osgeo</id>\
+                            <url>https://repo.osgeo.org/repository/released/</url>\
+                        </repository>\
+                    </repositories>' pom.xml
+        
             - name: Add JaCoCo plugin to pom.xml
               run: |
                 sed -i '/<build>/,/<\/build>/ {
