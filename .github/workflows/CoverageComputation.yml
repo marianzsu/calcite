@@ -20,7 +20,7 @@ jobs:
                 distribution: 'temurin'
         
             - name: Add JaCoCo plugin to pom.xml
-               run: |
+                run: |
                 cat <<'EOF' >> pom.xml
                 <plugin>
                 <groupId>org.jacoco</groupId>
