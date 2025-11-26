@@ -1,0 +1,33 @@
+name: Coverage Computation
+
+on:
+  workflow_dispatch:  # allows manual triggering
+
+jobs:
+  maven-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repo at a specific tag
+      - name: Checkout specific tag
+        uses: actions/checkout@v3
+        with:
+          ref: tags/calcite-1.15.0-incubating  # replace with your tag
+
+      # Step 2: Setup Java 8 (or the required version for this Calcite release)
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+
+      # Step 3: Build & test the project with JaCoCo agent (no POM modifications)
+      - name: Run tests with JaCoCo
+        run: mvn clean test jacoco:report -Djacoco.outputDirectory=target/site/jacoco
+
+      # Step 4: Upload the JaCoCo HTML report as an artifact
+      - name: Upload JaCoCo HTML report
+        uses: actions/upload-artifact@v3
+        with:
+          name: jacoco-report
+          path: '**/target/site/jacoco'
