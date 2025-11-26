@@ -21,27 +21,27 @@ jobs:
         
             - name: Add JaCoCo plugin to pom.xml
                run: |
-                sed -i '/<plugins>/a\
-                <plugin>\
-                <groupId>org.jacoco</groupId>\
-                <artifactId>jacoco-maven-plugin</artifactId>\
-                <version>0.8.14</version>\
-                <executions>\
-                    <execution>\
-                        <id>prepare-agent</id>\
-                        <goals>\
-                            <goal>prepare-agent</goal>\
-                        </goals>\
-                    </execution>\                
-                    <execution>\
-                        <id>report</id>\
-                        <phase>test</phase>\
-                        <goals>\
-                            <goal>report</goal>\
-                        </goals>\
-                    </execution>\
-                </executions>\
-                </plugin>' pom.xml
-        
+                cat <<'EOF' >> pom.xml
+                <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.14</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>                
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                </plugin>
+        EOF
             - name: Run jacoco test with maven-plugin
               run: mvn test
