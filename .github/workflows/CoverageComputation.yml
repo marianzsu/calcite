@@ -53,3 +53,9 @@ jobs:
                     
             - name: Run jacoco test with maven-plugin
               run: mvn test
+              
+            - name: Upload surefire reports
+              uses: actions/upload-artifact@v3
+              with:
+                name: surefire-reports
+                path: '**/surefire-reports/*.txt'
