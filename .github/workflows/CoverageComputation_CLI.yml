@@ -12,7 +12,7 @@ jobs:
       - name: Checkout specific tag
         uses: actions/checkout@v3
         with:
-          ref: tags/calcite-1.15.0-incubating  # replace with your tag
+          ref: refs/tags/calcite-1.15.0-incubating  # replace with your tag
 
       # Step 2: Setup Java 8 (or the required version for this Calcite release)
       - name: Set up JDK 8
