@@ -1,4 +1,4 @@
-name: Coverage Computation V2
+name: Coverage Computation NewVersion
 
 on:
   workflow_dispatch:  # allows manual triggering
