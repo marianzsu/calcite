@@ -762,6 +762,12 @@ limitations under the License.
             		<goals>
                 		<goal>prepare-agent</goal> <!-- attaches the agent -->
             		</goals>
+					<configuration>
+                <propertyName>jacoco.agent</propertyName>
+                <destFile>${project.build.directory}/jacoco.exec</destFile>
+                <append>true</append>
+                <verbose>true</verbose>
+            </configuration>
         		</execution>
         		<execution>
             		<id>report</id>
@@ -769,6 +775,12 @@ limitations under the License.
             		<goals>
                 		<goal>report</goal> <!-- generates the report -->
             		</goals>
+					<configuration>
+                <propertyName>jacoco.agent</propertyName>
+                <destFile>${project.build.directory}/jacoco.exec</destFile>
+                <append>true</append>
+                <verbose>true</verbose>
+            </configuration>
         		</execution>
     		</executions>
 	</plugin>
