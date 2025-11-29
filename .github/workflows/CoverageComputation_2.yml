@@ -28,7 +28,7 @@ jobs:
       - name: Find jacoco.exec files
         run: find . -name jacoco.exec
         
-      - name: Debug: list jacoco.exec files
+      - name: List jacoco.exec files
         run: |
             echo "Searching for jacoco.exec files..."
             find . -type f -name jacoco.exec -print
