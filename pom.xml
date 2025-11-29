@@ -755,6 +755,34 @@ limitations under the License.
       <plugins>
         <!-- Sorted by groupId, artifactId. -->
         <plugin>
+  <groupId>org.jacoco</groupId>
+  <artifactId>jacoco-maven-plugin</artifactId>
+  <version>0.8.14</version>
+  <executions>
+
+    <!-- attaches the Java agent to Surefire/Failsafe -->
+    <execution>
+      <id>prepare-agent</id>
+      <goals>
+        <goal>prepare-agent</goal>
+      </goals>
+      <configuration>
+        <propertyName>jacoco-agent.destfile</propertyName>
+      </configuration>
+    </execution>
+
+    <!-- generates the report AFTER tests have finished -->
+    <execution>
+      <id>report</id>
+      <phase>verify</phase>
+      <goals>
+        <goal>report</goal>
+      </goals>
+    </execution>
+
+  </executions>
+</plugin>
+        <plugin>
           <groupId>com.googlecode.fmpp-maven-plugin</groupId>
           <artifactId>fmpp-maven-plugin</artifactId>
           <version>${fmpp-maven-plugin.version}</version>
