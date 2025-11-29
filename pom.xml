@@ -782,6 +782,17 @@ limitations under the License.
                 <verbose>true</verbose>
             </configuration>
         		</execution>
+				 <execution>
+            <id>report-aggregate</id>
+            <phase>verify</phase> <!-- run after tests of all modules -->
+            <goals>
+                <goal>report-aggregate</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>${project.build.directory}/jacoco-aggregate</outputDirectory>
+                <dataFile>${project.build.directory}/jacoco.exec</dataFile>
+            </configuration>
+        </execution>
     		</executions>
 	</plugin>
     </plugins>
