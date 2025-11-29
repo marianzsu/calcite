@@ -527,26 +527,6 @@ limitations under the License.
           </execution>
         </executions>
       </plugin>
-	  <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.14</version> <executions>
-                <execution>
-                    <id>prepare-agent</id>
-                    <goals>
-                        <goal>prepare-agent</goal>
-                    </goals>
-                </execution>
-                
-                <execution>
-                    <id>report</id>
-                    <phase>test</phase>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
       <plugin>
         <groupId>org.apache.rat</groupId>
         <artifactId>apache-rat-plugin</artifactId>
@@ -749,39 +729,30 @@ limitations under the License.
           </execution>
         </executions>
       </plugin>
+	<plugin>
+    	<groupId>org.jacoco</groupId>
+    	<artifactId>jacoco-maven-plugin</artifactId>
+    		<version>0.8.10</version>
+    		<executions>
+        		<execution>
+            		<goals>
+                		<goal>prepare-agent</goal> <!-- attaches the agent -->
+            		</goals>
+        		</execution>
+        		<execution>
+            		<id>report</id>
+            		<phase>test</phase>
+            		<goals>
+                		<goal>report</goal> <!-- generates the report -->
+            		</goals>
+        		</execution>
+    		</executions>
+	</plugin>
     </plugins>
 
     <pluginManagement>
       <plugins>
         <!-- Sorted by groupId, artifactId. -->
-        <plugin>
-  <groupId>org.jacoco</groupId>
-  <artifactId>jacoco-maven-plugin</artifactId>
-  <version>0.8.14</version>
-  <executions>
-
-    <!-- attaches the Java agent to Surefire/Failsafe -->
-    <execution>
-      <id>prepare-agent</id>
-      <goals>
-        <goal>prepare-agent</goal>
-      </goals>
-      <configuration>
-        <propertyName>jacoco-agent.destfile</propertyName>
-      </configuration>
-    </execution>
-
-    <!-- generates the report AFTER tests have finished -->
-    <execution>
-      <id>report</id>
-      <phase>verify</phase>
-      <goals>
-        <goal>report</goal>
-      </goals>
-    </execution>
-
-  </executions>
-</plugin>
         <plugin>
           <groupId>com.googlecode.fmpp-maven-plugin</groupId>
           <artifactId>fmpp-maven-plugin</artifactId>
