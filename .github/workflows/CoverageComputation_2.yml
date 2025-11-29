@@ -23,7 +23,7 @@ jobs:
 
       # Step 3: Run Maven tests
       - name: Run Maven tests
-        run: run: mvn -B clean test -Dmaven.test.failure.ignore=true
+        run: mvn -B clean test -Dmaven.test.failure.ignore=true
           
       - name: List JaCoCo folders
         run: find . -type d -name jacoco
