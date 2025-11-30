@@ -23,7 +23,7 @@ jobs:
 
       # Step 3: Run Maven tests
       - name: Run Maven tests
-        run: mvn -B clean test -Dmaven.test.failure.ignore=true
+        run: mvn -B clean test 
       
       # Step 4: Upload report
       - name: Upload Jacoco report
