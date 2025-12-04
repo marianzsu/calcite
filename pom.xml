@@ -785,6 +785,31 @@ limitations under the License.
 				 
     		</executions>
 	</plugin>
+		<plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>failsafe-integration-test</id>
+              <goals>
+                <goal>integration-test</goal>
+              </goals>
+              <phase>integration-test</phase>
+              <configuration>
+                <threadCount>6</threadCount>
+                <parallel>both</parallel>
+                <argLine>-Xmx1024m</argLine>
+              </configuration>
+            </execution>
+            <execution>
+              <id>failsafe-verify</id>
+              <goals>
+                <goal>verify</goal>
+              </goals>
+              <phase>verify</phase>
+            </execution>
+          </executions>
+        </plugin>
     </plugins>
 
     <pluginManagement>
@@ -822,31 +847,7 @@ limitations under the License.
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${maven-checkstyle-plugin.version}</version>
         </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <executions>
-            <execution>
-              <id>failsafe-integration-test</id>
-              <goals>
-                <goal>integration-test</goal>
-              </goals>
-              <phase>integration-test</phase>
-              <configuration>
-                <threadCount>6</threadCount>
-                <parallel>both</parallel>
-                <argLine>-Xmx1024m</argLine>
-              </configuration>
-            </execution>
-            <execution>
-              <id>failsafe-verify</id>
-              <goals>
-                <goal>verify</goal>
-              </goals>
-              <phase>verify</phase>
-            </execution>
-          </executions>
-        </plugin>
+        
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
