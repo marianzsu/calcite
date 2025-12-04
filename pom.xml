@@ -798,7 +798,7 @@ limitations under the License.
               <configuration>
                 <threadCount>6</threadCount>
                 <parallel>both</parallel>
-                <argLine>-Xmx1024m</argLine>
+                <argLine>-Xmx1024m ${jacoco.agent}</argLine>
               </configuration>
             </execution>
             <execution>
