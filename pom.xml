@@ -782,7 +782,32 @@ limitations under the License.
                 <verbose>true</verbose>
             </configuration>
         		</execution>
-				 
+				 <execution>
+            <id>prepare-agent-integration</id>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+            <phase>pre-integration-test</phase>
+            <configuration>
+                <propertyName>jacoco.agent</propertyName>
+                <destFile>${project.build.directory}/jacoco-it.exec</destFile>
+                <append>true</append>
+                <verbose>true</verbose>
+            </configuration>
+        </execution>
+
+        <execution>
+            <id>report-integration</id>
+            <phase>post-integration-test</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+            <configuration>
+                <dataFile>${project.build.directory}/jacoco-it.exec</dataFile>
+                <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+                <verbose>true</verbose>
+            </configuration>
+        </execution>
     		</executions>
 	</plugin>
 		<plugin>
