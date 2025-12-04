@@ -821,7 +821,7 @@ limitations under the License.
               </goals>
               <phase>integration-test</phase>
               <configuration>
-                <threadCount>6</threadCount>
+                <threadCount>1</threadCount>
                 <parallel>both</parallel>
                 <argLine>-Xmx1024m ${jacoco.agent}</argLine>
               </configuration>
