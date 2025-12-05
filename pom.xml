@@ -819,9 +819,8 @@ limitations under the License.
             <fileSet>
                 <directory>${project.build.directory}</directory>
                 <includes>
-                    <include>jacoco.exec</include>
-                    <include>jacoco-it.exec</include>
-                    <include>jacoco-it-oracle.exec</include>
+                    <include>jacoco*.exec</include>
+                    
                 </includes>
             </fileSet>
         </fileSets>
