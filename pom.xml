@@ -823,7 +823,7 @@ limitations under the License.
               <configuration>
                 <threadCount>1</threadCount>
                 <parallel>both</parallel>
-                <argLine>-Xmx1024m</argLine>
+                <argLine> ${jacoco.agent} -Xmx1024m</argLine>
               </configuration>
             </execution>
             <execution>
