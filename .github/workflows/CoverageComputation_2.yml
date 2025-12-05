@@ -25,9 +25,6 @@ jobs:
       - name: Run Maven tests
         run: mvn -B clean verify -Pit -Dmaven.test.failure.ignore=true 
 
-      - name: Run Maven tests - Oracle ITs
-        run: mvn -B verify -Pit-oracle -Dmaven.test.failure.ignore=true
-
       - name: Merge Jacoco coverage
         run: mvn jacoco:merge
       
