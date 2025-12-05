@@ -422,6 +422,17 @@ limitations under the License.
                   </systemPropertyVariables>
                 </configuration>
               </execution>
+              <execution>
+    <id>prepare-agent-integration-oracle</id>
+    <phase>pre-integration-test</phase>
+    <goals>
+        <goal>prepare-agent</goal>
+    </goals>
+    <configuration>
+        <destFile>${project.build.directory}/jacoco-it-oracle.exec</destFile>
+        <append>true</append>
+    </configuration>
+</execution>
             </executions>
           </plugin>
         </plugins>
