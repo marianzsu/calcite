@@ -397,6 +397,24 @@ limitations under the License.
       <build>
         <plugins>
           <plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.14</version>
+    <executions>
+        <execution>
+            <id>prepare-agent-integration-oracle</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+            <configuration>
+                <destFile>${project.build.directory}/jacoco-it-oracle.exec</destFile>
+                <append>true</append>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
             <executions>
@@ -422,18 +440,7 @@ limitations under the License.
                   </systemPropertyVariables>
                 </configuration>
               </execution>
-              <execution>
-    <id>prepare-agent-integration-oracle</id>
-    <phase>pre-integration-test</phase>
-    <goals>
-        <goal>prepare-agent</goal>
-    </goals>
-    <configuration>
-        <destFile>${project.build.directory}/jacoco-it-oracle.exec</destFile>
-        <append>true</append>
-    </configuration>
-</execution>
-            </executions>
+                     </executions>
           </plugin>
         </plugins>
       </build>
