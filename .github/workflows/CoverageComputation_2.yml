@@ -29,6 +29,9 @@ jobs:
         run: mvn jacoco:merge -f parent/pom.xml \
           -Djacoco.destFile=target/jacoco-merged.exec \
           -Djacoco.fileSets=**/target/jacoco*.exec
+
+      - name: Generate Jacoco report
+        run: mvn jacoco:report -Djacoco.dataFile=target/jacoco-merged.exec
       
       # Step 4: Upload report
       - name: Upload Jacoco report
