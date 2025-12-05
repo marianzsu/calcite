@@ -776,9 +776,9 @@ limitations under the License.
                 		<goal>report</goal> <!-- generates the report -->
             		</goals>
 					<configuration>
-                <propertyName>jacoco.agent</propertyName>
+                <!--<propertyName>jacoco.agent</propertyName>
                 <destFile>${project.build.directory}/jacoco.exec</destFile>
-                <append>true</append>
+                <append>true</append> -->
                 <verbose>true</verbose>
             </configuration>
         		</execution>
@@ -795,7 +795,6 @@ limitations under the License.
                 <verbose>true</verbose>
             </configuration>
         </execution>
-
         <execution>
             <id>report-integration</id>
             <phase>post-integration-test</phase>
@@ -823,7 +822,7 @@ limitations under the License.
               <configuration>
                 <threadCount>1</threadCount>
                 <parallel>both</parallel>
-                <argLine>-Xmx1024m ${jacoco.agent}</argLine>
+                <argLine>-Xmx1024m</argLine>
               </configuration>
             </execution>
             <execution>
