@@ -25,10 +25,7 @@ jobs:
       - name: Run Maven tests
         run: mvn -B clean verify -Pit -Dmaven.test.failure.ignore=true 
 
-      - name: Merge Jacoco exec files
-        run: mvn jacoco:merge -f parent/pom.xml \
-          -Djacoco.destFile=target/jacoco-merged.exec \
-          -Djacoco.fileSets=**/target/jacoco*.exec
+     
 
       - name: Generate Jacoco report
         run: mvn jacoco:report -Djacoco.dataFile=target/jacoco-merged.exec
