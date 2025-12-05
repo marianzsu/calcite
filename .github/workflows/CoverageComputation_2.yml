@@ -24,6 +24,12 @@ jobs:
       # Step 3: Run Maven tests
       - name: Run Maven tests
         run: mvn -B clean verify -Pit -Dmaven.test.failure.ignore=true 
+
+      - name: Run Maven tests - Oracle ITs
+        run: mvn -B verify -Pit-oracle -Dmaven.test.failure.ignore=true
+
+      - name: Merge Jacoco coverage
+        run: mvn jacoco:merge
       
       # Step 4: Upload report
       - name: Upload Jacoco report
@@ -38,6 +44,12 @@ jobs:
         with:
           name: surefire-reports
           path: '**/target/surefire-reports'
+
+      - name: Upload Failsafe reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: failsafe-reports
+          path: '**/target/failsafe-reports'
       
           
     
