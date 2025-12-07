@@ -127,7 +127,7 @@ limitations under the License.
           <includes>
             <include>org/apache/calcite/test/PlusSuite.java</include>
           </includes>
-          <argLine>${jacoco.agent}</argLine>
+          <argLine>${jacoco.ut.agent}</argLine>
         </configuration>
       </plugin>
     </plugins>
