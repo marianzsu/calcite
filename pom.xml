@@ -722,8 +722,8 @@ limitations under the License.
 	<version>2.22.0</version>
     <configuration>
 		<threadCount>1</threadCount>
-        <perCoreThreadCount>true</perCoreThreadCount>
-        <parallel>${surefire.parallel}</parallel>
+        <perCoreThreadCount>false</perCoreThreadCount>
+        <parallel>none</parallel>
         <forkCount>1</forkCount>
 		<reuseForks>true</reuseForks>
         <systemProperties>
@@ -736,7 +736,7 @@ limitations under the License.
                 <value>tr</value>
             </systemProperty>
         </systemProperties>
-        <argLine>-Xmx1536m -XX:MaxPermSize=256m ${jacoco.agent}</argLine>
+        <argLine>-Xmx1536m ${jacoco.ut.agent}</argLine>
     </configuration>
 </plugin>
 <plugin>
@@ -749,7 +749,7 @@ limitations under the License.
            		<goal>prepare-agent</goal> <!-- attaches the agent -->
        		</goals>
 			<configuration>
-               	<propertyName>jacoco.agent</propertyName>
+               	<propertyName>jacoco.ut.agent</propertyName>
            		<destFile>${project.build.directory}/jacoco.exec</destFile>
            		<append>true</append>
            		<verbose>true</verbose>
@@ -772,7 +772,7 @@ limitations under the License.
         	</goals>
        		<phase>pre-integration-test</phase>
        		<configuration>
-           		<propertyName>jacoco.agent</propertyName>
+           		<propertyName>jacoco.it.agent</propertyName>
           		<destFile>${project.build.directory}/jacoco-it.exec</destFile>
            		<append>true</append>
            		<verbose>true</verbose>
@@ -834,8 +834,8 @@ limitations under the License.
             <phase>integration-test</phase>
             <configuration>
 				<threadCount>1</threadCount>
-                <parallel>both</parallel>
-                <argLine> ${jacoco.agent} -Xmx1024m</argLine>
+                <parallel>none</parallel>
+                <argLine> ${jacoco.it.agent} -Xmx1024m</argLine>
             </configuration>
 		</execution>
 		<execution>
