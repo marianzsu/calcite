@@ -89,7 +89,7 @@ limitations under the License.
           <includes>
             <include>org/apache/calcite/adapter/file/FileSuite.java</include>
           </includes>
-			<argLine>${jacoco.agent}</argLine>
+			<argLine>${jacoco.ut.agent}</argLine>
         </configuration>
       </plugin>
 
