@@ -44,7 +44,7 @@ jobs:
           path: '**/target/surefire-reports'
 		  
       #Step 7: Upload Failsafe reports
-	  - name: Upload Failsafe reports
+      - name: Upload Failsafe reports
         uses: actions/upload-artifact@v4
         with:
           name: failsafe-reports
