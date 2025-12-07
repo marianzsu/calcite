@@ -25,7 +25,7 @@ jobs:
       - name: Run Maven tests
         run: mvn -B clean verify -Pit -Dmaven.test.failure.ignore=true 
 
-	  # Step 4: Generate the jacoco tests
+      # Step 4: Generate the jacoco tests
       - name: Generate Jacoco report
         run: mvn jacoco:report -Djacoco.dataFile=target/jacoco-merged.exec
       
