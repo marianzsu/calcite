@@ -701,6 +701,54 @@ limitations under the License.
           </execution>
         </executions>
       </plugin>
+		<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+	<version>2.22.0</version>
+    <configuration>
+		<threadCount>1</threadCount>
+        <perCoreThreadCount>false</perCoreThreadCount>
+        <parallel>none</parallel>
+        <forkCount>1</forkCount>
+		<reuseForks>true</reuseForks>
+        <systemProperties>
+			<systemProperty>
+				<name>user.language</name>
+				<value>TR</value>
+            </systemProperty>
+            <systemProperty>
+                <name>user.country</name>
+                <value>tr</value>
+            </systemProperty>
+        </systemProperties>
+        <argLine>-Xmx1536m ${jacoco.ut.agent}</argLine>
+    </configuration>
+</plugin>
+<plugin>
+  	<groupId>org.jacoco</groupId>
+   	<artifactId>jacoco-maven-plugin</artifactId>
+	<version>0.8.14</version>
+	<executions>
+   		<execution>
+       		<goals>
+           		<goal>prepare-agent</goal> <!-- attaches the agent -->
+       		</goals>
+			<configuration>
+               	<propertyName>jacoco.ut.agent</propertyName>
+           		<destFile>${project.build.directory}/jacoco.exec</destFile>
+           		<append>true</append>
+       		</configuration>
+   		</execution>
+   		<execution>
+       		<id>report</id>
+       		<phase>test</phase>
+			<goals>
+           		<goal>report</goal> <!-- generates the report -->
+       		</goals>			
+        </execution>
+		
+    </executions>
+</plugin>
     </plugins>
 
     <pluginManagement>
