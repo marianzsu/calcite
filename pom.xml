@@ -774,8 +774,8 @@ limitations under the License.
            		<goal>report</goal> <!-- generates the report -->
        		</goals>			
         </execution>
-		<execution>
-        
+	</executions>
+		   
 </plugin>
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
