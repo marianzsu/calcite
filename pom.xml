@@ -837,7 +837,7 @@ limitations under the License.
     <repository>
         <id>wikimedia-archiva</id>
         <url>https://archiva.wikimedia.org/repository/mirrored</url>
-    </repository
+    </repository>
   </repositories>
 
   <profiles>
