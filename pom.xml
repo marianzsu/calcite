@@ -149,12 +149,7 @@ limitations under the License.
   <!-- No dependencies here. Declare dependency VERSIONS in
        dependencyManagement, below, and each dependency in the module that uses
        it. -->
-	<repositories>
-    <repository>
-        <id>wikimedia-archiva</id>
-        <url>https://archiva.wikimedia.org/repository/mirrored</url>
-    </repository>
-</repositories>
+
   <dependencies />
 
   <dependencyManagement>
@@ -838,6 +833,11 @@ limitations under the License.
       <url>http://conjars.org/repo</url>
       <layout>default</layout>
     </repository>
+	  
+    <repository>
+        <id>wikimedia-archiva</id>
+        <url>https://archiva.wikimedia.org/repository/mirrored</url>
+    </repository
   </repositories>
 
   <profiles>
