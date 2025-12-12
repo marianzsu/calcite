@@ -149,6 +149,12 @@ limitations under the License.
   <!-- No dependencies here. Declare dependency VERSIONS in
        dependencyManagement, below, and each dependency in the module that uses
        it. -->
+	<repositories>
+    <repository>
+        <id>wikimedia-archiva</id>
+        <url>https://archiva.wikimedia.org/repository/mirrored</url>
+    </repository>
+</repositories>
   <dependencies />
 
   <dependencyManagement>
@@ -1002,4 +1008,5 @@ limitations under the License.
       </build>
     </profile>
   </profiles>
+	
 </project>
