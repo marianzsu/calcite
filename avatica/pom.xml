@@ -503,6 +503,13 @@ limitations under the License.
           </execution>
         </executions>
       </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <argLine>-Xmx1536m -XX:MaxPermSize=256m -Duser.timezone=${user.timezone} ${jacoco.ut.agent}</argLine>
+          </configuration>
+        </plugin>
     </plugins>
 
     <pluginManagement>
@@ -571,13 +578,7 @@ limitations under the License.
           <artifactId>maven-source-plugin</artifactId>
           <version>${maven-source-plugin.version}</version>
         </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <configuration>
-            <argLine>-Xmx1536m -XX:MaxPermSize=256m -Duser.timezone=${user.timezone}</argLine>
-          </configuration>
-        </plugin>
+        
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
