@@ -129,6 +129,7 @@ limitations under the License.
           <excludes>
             <exclude>org/apache/calcite/**/*.java</exclude>
           </excludes>
+          <argLine>-Xmx1536m ${jacoco.ut.agent}</argLine>
         </configuration>
       </plugin>
       <plugin>
