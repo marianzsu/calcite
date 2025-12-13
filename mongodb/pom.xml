@@ -106,9 +106,9 @@ limitations under the License.
           <includes>
             <include>org/apache/calcite/test/MongoAdapterTest.java</include>
           </includes>
-          <threadCount>6</threadCount>
-          <parallel>both</parallel>
-          <argLine>-Xmx1024m</argLine>
+          <threadCount>1</threadCount>
+          <parallel>none</parallel>
+          <argLine>-Xmx1024m ${jacoco.ut.agent}</argLine>
         </configuration>
       </plugin>
     </plugins>
