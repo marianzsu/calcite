@@ -37,7 +37,7 @@ jobs:
           -DartifactId=mondrian-data-foodmart-queries \
           -Dversion=0.3 \
           -Dpackaging=jar \
-          -Dfile=dependency-jar.jar \
+          -Dfile=foodmart-data-hsqldb-0.7-SNAPSHOT.jar \
           -DpomFile=pom2.pom
 
       - name: Check dependency
