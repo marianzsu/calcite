@@ -22,7 +22,7 @@ jobs:
           java-version: '8'
 
       - name: Set up Maven 3.6.3
-        uses: s4u/setup-maven-action@v1
+        uses: actions/setup-maven-@v4
         with:
           maven-version: 3.6.3
     
