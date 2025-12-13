@@ -48,6 +48,14 @@ jobs:
           -Dfile=foodmart-queries-0.5-SNAPSHOT.jar \
           -DpomFile=pom3.pom
 
+          mvn install:install-file \
+          -DgroupId=net.hydromatic \
+          -DartifactId=hydromatic-resource-maven-plugin \
+          -Dversion=0.3 \
+          -Dpackaging=jar \
+          -Dfile= hydromatic-resource-maven-plugin-0.3.jar \
+          -DpomFile=hydromatic-resource-maven-plugin-0.3.pom
+
       - name: Check dependency
         run: mvn dependency:get -DgroupId=net.hydromatic -DartifactId=quidem -Dversion=0.2
     
