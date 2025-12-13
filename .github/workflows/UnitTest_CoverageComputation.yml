@@ -21,6 +21,11 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
 
+      - name: Set up Maven 3.6.3
+        uses: s4u/setup-maven-action@v1
+        with:
+          maven-version: 3.6.3
+    
       # Step 3: Run Maven tests
       - name: Run Maven tests
         run: mvn -B clean verify -DskipITs=true -Dmaven.test.failure.ignore=true --settings settings.xml
