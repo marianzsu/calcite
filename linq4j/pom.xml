@@ -61,6 +61,7 @@ limitations under the License.
           <includes>
             <include>org/apache/calcite/linq4j/test/Linq4jSuite.java</include>
           </includes>
+          <argLine>${jacoco.ut.agent}</argLine>
         </configuration>
       </plugin>
     </plugins>
