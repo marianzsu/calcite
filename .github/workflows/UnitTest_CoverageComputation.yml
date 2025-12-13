@@ -21,14 +21,19 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
 
-      - name: Install Maven 3.6.3
+      - name: Install missing dependencies locally
         run: |
-          curl -fsSL https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz -o maven.tar.gz
-          tar -xzf maven.tar.gz
-          echo "$PWD/apache-maven-3.6.3/bin" >> $GITHUB_PATH
+          cd libs
+          mvn install:install-file \
+          -DgroupId=net.hydromatic \
+          -DartifactId=quidem \
+          -Dversion=0.2 \
+          -Dpackaging=jar \
+          -Dfile=quidem-0.2.jar \
+          -DpomFile=quidem-0.2.pom
 
-      - name: Check Maven version
-        run: mvn -version
+      - name: Check dependency
+        run: mvn dependency:get -DgroupId=net.hydromatic -DartifactId=quidem -Dversion=0.2
     
       # Step 3: Run Maven tests
       - name: Run Maven tests
