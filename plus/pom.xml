@@ -133,9 +133,9 @@ limitations under the License.
             <include>org/apache/calcite/test/PlusSuite.java</include>
           </includes>
           <threadCount>1</threadCount>
-          <perCoreThreadCount>true</perCoreThreadCount>
-          <parallel>both</parallel>
-          <argLine>-Xmx2g</argLine>
+          <perCoreThreadCount>false</perCoreThreadCount>
+          <parallel>none</parallel>
+          <argLine>-Xmx2g ${jacoco.ut.agent}</argLine>
         </configuration>
       </plugin>
     </plugins>
