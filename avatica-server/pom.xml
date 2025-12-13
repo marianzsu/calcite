@@ -54,6 +54,7 @@ limitations under the License.
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <excludes />
+          <argLine>${jacoco.ut.agent}</argLine>
         </configuration>
       </plugin>
 
