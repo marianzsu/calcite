@@ -154,7 +154,7 @@ limitations under the License.
       <dependency>
         <groupId>org.apache.calcite.avatica</groupId>
         <artifactId>avatica-server</artifactId>
-        <version>${project.version}</version>
+        <version>1.8.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.calcite.avatica</groupId>
@@ -666,6 +666,10 @@ limitations under the License.
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
+    </repository>
+	   <repository>
+        <id>wikimedia-archiva</id>
+        <url>https://archiva.wikimedia.org/repository/mirrored</url>
     </repository>
   </repositories>
 
