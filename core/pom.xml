@@ -66,9 +66,9 @@ limitations under the License.
             <include>org/apache/calcite/test/CalciteSuite.java</include>
           </includes>
           <threadCount>1</threadCount>
-          <perCoreThreadCount>true</perCoreThreadCount>
-          <parallel>both</parallel>
-          <argLine>-Xmx1536m -XX:MaxPermSize=256m</argLine>
+          <perCoreThreadCount>false</perCoreThreadCount>
+          <parallel>none</parallel>
+          <argLine>-Xmx1536m -XX:MaxPermSize=256m ${jacoco.ut.agent}</argLine>
         </configuration>
       </plugin>
       <plugin>
