@@ -32,6 +32,14 @@ jobs:
           -Dfile=quidem-0.2.jar \
           -DpomFile=quidem-0.2.pom
 
+          mvn install:install-file \
+          -DgroupId=pentaho \
+          -DartifactId=mondrian-data-foodmart-queries \
+          -Dversion=0.3 \
+          -Dpackaging=jar \
+          -Dfile=dependency-jar.jar \
+          -DpomFile=pom2.pom
+
       - name: Check dependency
         run: mvn dependency:get -DgroupId=net.hydromatic -DartifactId=quidem -Dversion=0.2
     
