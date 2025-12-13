@@ -34,8 +34,8 @@ jobs:
 
           mvn install:install-file \
           -DgroupId=pentaho \
-          -DartifactId=mondrian-data-foodmart-queries \
-          -Dversion=0.3 \
+          -DartifactId=mondrian-data-foodmart-hsqldb \
+          -Dversion=0.2 \
           -Dpackaging=jar \
           -Dfile=foodmart-data-hsqldb-0.7-SNAPSHOT.jar \
           -DpomFile=pom2.pom
