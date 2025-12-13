@@ -21,10 +21,14 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
 
-      - name: Set up Maven 3.6.3
-        uses: actions/setup-maven-@v4
-        with:
-          maven-version: 3.6.3
+      - name: Install Maven 3.6.3
+        run: |
+          curl -fsSL https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz -o maven.tar.gz
+          tar -xzf maven.tar.gz
+          echo "$PWD/apache-maven-3.6.3/bin" >> $GITHUB_PATH
+
+      - name: Check Maven version
+        run: mvn -version
     
       # Step 3: Run Maven tests
       - name: Run Maven tests
