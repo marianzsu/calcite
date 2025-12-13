@@ -1,0 +1,48 @@
+name: Unit Test Coverage Computation for Avatica
+
+on:
+  workflow_dispatch:  # allows manual triggering
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 #get all
+
+      # Step 2: Set up Java
+      - name: Set up Java 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+
+      # Step 3: Run Maven unit tests (Avatica only)
+      - name: Run Avatica unit tests
+        run: |
+          cd avatica
+          mvn -B clean verify -DskipITs=true -Dmaven.test.failure.ignore=true
+        
+      - name: Generate Jacoco report
+        run: |
+          cd avatica
+          mvn jacoco:report
+      
+      # Step 4: Upload report
+      - name: Upload Jacoco report
+        uses: actions/upload-artifact@v4
+        with:
+          name: avatica-jacoco-reports-${{ github.ref_name }}
+          path: 'avatica/**/target/site/jacoco*'
+          
+      #Step 5: Upload surefire reports to get failed test nr
+      - name: Upload Surefire reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: avatica-surefire-reports-${{ github.ref_name }}
+          path: 'avatica/**/target/surefire-reports'
+
