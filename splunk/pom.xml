@@ -102,6 +102,7 @@ limitations under the License.
           <includes>
             <include>org/apache/calcite/test/SplunkAdapterTest.java</include>
           </includes>
+          <argLine>${jacoco.ut.agent}</argLine>
         </configuration>
       </plugin>
       <plugin>
