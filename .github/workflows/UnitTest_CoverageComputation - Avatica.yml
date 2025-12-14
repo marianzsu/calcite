@@ -40,7 +40,8 @@ jobs:
       - name: Run Avatica unit tests
         run: |
           cd avatica
-          mvn -B clean verify -DskipITs=true -Dmaven.test.failure.ignore=true -s settings.xml
+          mvn clean install -DskipITs=true
+          mvn -B verify -DskipITs=true -Dmaven.test.failure.ignore=true -s settings.xml
         
       - name: Generate Jacoco report
         run: |
