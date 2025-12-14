@@ -21,21 +21,6 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
 
-      - name: Install fake avatica tests jar (CI workaround)
-        run: |
-          mkdir -p /tmp/empty
-          echo "dummy" > /tmp/empty/dummy.txt
-          jar cf /tmp/avatica-tests.jar -C /tmp/empty .
-
-          mvn install:install-file \
-            -DgroupId=org.apache.calcite.avatica \
-            -DartifactId=avatica \
-            -Dversion=1.9.0-SNAPSHOT \
-            -Dclassifier=tests \
-            -Dpackaging=jar \
-            -Dfile=/tmp/avatica-tests.jar
-
-
       # Step 3: Run Maven unit tests (Avatica only)
       - name: Run Avatica unit tests
         run: |
