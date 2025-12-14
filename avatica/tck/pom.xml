@@ -108,8 +108,7 @@ limitations under the License.
         </includes>
       </configuration>
     </plugin>
-  </plugins>
-    <plugins>
+ 
       <!-- Parent module has the same plugin and does the work of
            generating -sources.jar for each project. But without the
            plugin declared here, IDEs don't know the sources are
