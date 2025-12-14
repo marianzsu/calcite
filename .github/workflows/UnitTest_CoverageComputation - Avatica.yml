@@ -22,15 +22,21 @@ jobs:
           java-version: '8'
 
       # Step 3: Run Maven unit tests (Avatica only)
+      - name: Install Avatica 
+        run: |
+          cd avatica
+          mvn clean install -DskipTests=true -s settings.xml
+          
+      # Step 3: Run Maven unit tests (Avatica only)
       - name: Run Avatica unit tests
         run: |
           cd avatica
-          mvn -B clean verify -DskipITs=true -Dmaven.test.failure.ignore=true
+          mvn -B verify -DskipITs=true -Dmaven.test.failure.ignore=true -s settings.xml 
         
       - name: Generate Jacoco report
         run: |
           cd avatica
-          mvn jacoco:report
+          mvn jacoco:report -s settings.xml
       
       # Step 4: Upload report
       - name: Upload Jacoco report
