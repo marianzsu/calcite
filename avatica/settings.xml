@@ -5,16 +5,10 @@
 
   <mirrors>
     <mirror>
-      <id>allow-http</id>
-      <mirrorOf>external:http:*</mirrorOf>
-      <url>http://repo.maven.apache.org/maven2</url>
+      <id>apache-snapshots-http</id>
+      <mirrorOf>apache.snapshots</mirrorOf>
+      <url>http://repository.apache.org/snapshots</url>
     </mirror>
   </mirrors>
 
-<mirror>
-  <id>apache-http</id>
-  <mirrorOf>apache.snapshots</mirrorOf>
-  <url>http://repository.apache.org/snapshots</url>
-</mirror>
-  
 </settings>
