@@ -69,6 +69,7 @@ limitations under the License.
       <groupId>org.apache.calcite.avatica</groupId>
       <artifactId>avatica-core</artifactId>
       <classifier>tests</classifier>
+      <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
