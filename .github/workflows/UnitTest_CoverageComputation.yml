@@ -32,13 +32,13 @@ jobs:
       - name: Upload Jacoco report
         uses: actions/upload-artifact@v4
         with:
-          name: jacoco-reports
+          name: jacoco-reports-${{ github.ref_name }}
           path: '**/target/site/jacoco*'
           
       #Step 5: Upload surefire reports to get failed test nr
       - name: Upload Surefire reports
         uses: actions/upload-artifact@v4
         with:
-          name: surefire-reports
+          name: surefire-reports-${{ github.ref_name }}
           path: '**/target/surefire-reports'
 
