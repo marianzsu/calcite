@@ -96,6 +96,19 @@ limitations under the License.
         </plugin>
       </plugins>
     </pluginManagement>
+    <testSourceDirectory>${basedir}/src/main/java</testSourceDirectory>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.1.2</version>
+      <configuration>
+        <includes>
+          <include>**/*Test.java</include>
+        </includes>
+      </configuration>
+    </plugin>
+  </plugins>
     <plugins>
       <!-- Parent module has the same plugin and does the work of
            generating -sources.jar for each project. But without the
