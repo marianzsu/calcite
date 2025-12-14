@@ -25,7 +25,7 @@ jobs:
       - name: Run Avatica unit tests
         run: |
           cd avatica
-          mvn clean install -DskipITs=true
+          mvn clean install -DskipTests=true
           
       # Step 3: Run Maven unit tests (Avatica only)
       - name: Run Avatica unit tests
