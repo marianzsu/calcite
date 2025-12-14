@@ -21,11 +21,6 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
 
-      - name: Build a jar
-        run: | 
-          cd avatica/core
-          mvn clean install -DskipTests=true -Dpackaging=jar -Dclassifier=tests
-
       # Step 3: Run Maven unit tests (Avatica only)
       - name: Install Avatica 
         run: |
